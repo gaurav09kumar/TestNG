@@ -20,30 +20,34 @@ public class NewTest1 {
 		Thread.sleep(5000);
 	}
 
-	@Test(priority = 1, dependsOnMethods= {"loginToApplication"})
-	public void searchForUser() {
+	@Test(priority = 1, dependsOnMethods = { "loginToApplication" })
+	public void searchForUser() throws InterruptedException {
 		driver.findElement(By.xpath("//b[contains(text(),'Admin')]")).click();
 		driver.findElement(By.id("searchSystemUser_userName")).sendKeys("prasanth95");
 		driver.findElement(By.className("searchbutton123")).click();
+		Thread.sleep(5000);
 	}
 
-	@Test(priority = 2, dependsOnMethods= {"searchForUser"})
-	public void deleteTheUser() {
+	@Test(priority = 2, dependsOnMethods = { "searchForUser" })
+	public void deleteTheUser() throws InterruptedException {
 		driver.findElement(By.xpath("//tr[@class='odd']/td/input[@type='checkbox']")).click();
 		// find delete button by id
 		driver.findElement(By.id("btnDelete")).click();
 		// find delete button by xpath
-		//driver.findElement(By.xpath("//div[@class='top']/input[@type='submit' and @class='delete']")).click();
+		// driver.findElement(By.xpath("//div[@class='top']/input[@type='submit' and
+		// @class='delete']")).click();
+		Thread.sleep(5000);
 	}
 
 	@BeforeClass
-	public void beforeClass() throws InterruptedException {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\VSPICT\\Downloads\\chromedriver.exe");
 		driver = new ChromeDriver();
-		Thread.sleep(5000);
+
 	}
+
 	@AfterClass
-	public void afterClass(){
+	public void afterClass() {
 		driver.close();
 	}
 }
