@@ -3,6 +3,7 @@ package demo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,18 +24,26 @@ public class NewTest1 {
 	public void searchForUser() {
 		driver.findElement(By.xpath("//b[contains(text(),'Admin')]")).click();
 		driver.findElement(By.id("searchSystemUser_userName")).sendKeys("prasanth95");
-		driver.findElement(By.className("searchbutton")).click();
+		driver.findElement(By.className("searchbutton123")).click();
 	}
 
 	@Test(priority = 2, dependsOnMethods= {"searchForUser"})
 	public void deleteTheUser() {
 		driver.findElement(By.xpath("//tr[@class='odd']/td/input[@type='checkbox']")).click();
+		// find delete button by id
 		driver.findElement(By.id("btnDelete")).click();
+		// find delete button by xpath
+		//driver.findElement(By.xpath("//div[@class='top']/input[@type='submit' and @class='delete']")).click();
 	}
 
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\VSPICT\\Downloads\\chromedriver.exe");
 		driver = new ChromeDriver();
+		Thread.sleep(5000);
+	}
+	@AfterClass
+	public void afterClass(){
+		driver.close();
 	}
 }
