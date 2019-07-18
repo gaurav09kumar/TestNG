@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="4" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="157" started-at="2019-07-18T06:22:05Z" finished-at="2019-07-18T06:22:05Z">
+    <groups>
+      <group name="Regression">
+        <method signature="Demo.testCaseFour()[pri:2, instance:demo.Demo@51081592]" name="testCaseFour" class="demo.Demo"/>
+        <method signature="Demo.testCaseOne()[pri:0, instance:demo.Demo@51081592]" name="testCaseOne" class="demo.Demo"/>
+        <method signature="Demo.testCaseTwo()[pri:1, instance:demo.Demo@51081592]" name="testCaseTwo" class="demo.Demo"/>
+      </group> <!-- Regression -->
+    </groups>
+    <test name="Test" duration-ms="157" started-at="2019-07-18T06:22:05Z" finished-at="2019-07-18T06:22:05Z">
+      <class name="demo.Demo">
+        <test-method status="PASS" signature="testCaseOne()[pri:0, instance:demo.Demo@51081592]" name="testCaseOne" duration-ms="37" started-at="2019-07-18T06:22:05Z" finished-at="2019-07-18T06:22:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseOne -->
+        <test-method status="PASS" signature="testCaseTwo()[pri:1, instance:demo.Demo@51081592]" name="testCaseTwo" duration-ms="6" started-at="2019-07-18T06:22:05Z" finished-at="2019-07-18T06:22:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseTwo -->
+        <test-method status="PASS" signature="testCaseFour()[pri:2, instance:demo.Demo@51081592]" name="testCaseFour" duration-ms="11" started-at="2019-07-18T06:22:05Z" finished-at="2019-07-18T06:22:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseFour -->
+      </class> <!-- demo.Demo -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

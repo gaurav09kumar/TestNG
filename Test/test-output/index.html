@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-Suite">
-                    <span>2 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -108,11 +108,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="demo.Demo" hash-for-method="testCaseOne">testCaseOne</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="demo.Demo" hash-for-method="testCaseThree">testCaseThree</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -154,13 +149,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testCaseThree">
-                  </a> <!-- testCaseThree -->
-                  <span class="method-name">testCaseThree</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="testCaseTwo">
                   </a> <!-- testCaseTwo -->
                   <span class="method-name">testCaseTwo</span>
@@ -180,8 +168,11 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;groups&gt;
-      &lt;run&gt;
+      &lt;define name=&quot;all&quot;&gt;
         &lt;include name=&quot;Smoke&quot;/&gt;
+        &lt;include name=&quot;Regression&quot;/&gt;
+      &lt;/define&gt; &lt;!-- all --&gt;
+      &lt;run&gt;
         &lt;include name=&quot;Regression&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
@@ -226,14 +217,6 @@
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
-            <div class="test-group">
-              <span class="test-group-name">Smoke</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">testCaseThree</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -250,28 +233,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testCaseOne')
 data.setCell(0, 2, 'demo.Demo')
-data.setCell(0, 3, 32);
+data.setCell(0, 3, 37);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testCaseTwo')
+data.setCell(1, 1, 'testCaseFour')
 data.setCell(1, 2, 'demo.Demo')
-data.setCell(1, 3, 5);
+data.setCell(1, 3, 11);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testCaseThree')
+data.setCell(2, 1, 'testCaseTwo')
 data.setCell(2, 2, 'demo.Demo')
-data.setCell(2, 3, 5);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testCaseFour')
-data.setCell(3, 2, 'demo.Demo')
-data.setCell(3, 3, 4);
+data.setCell(2, 3, 6);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 46 ms</span>
+              <span class="suite-total-time">Total running time: 54 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -286,9 +265,16 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">demo.Demo</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testCaseThree</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -304,15 +290,11 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testCaseTwo</span>
-                <span class="method-start">45 ms</span>
+                <span class="method-start">50 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testCaseFour</span>
-                <span class="method-start">62 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testCaseThree</span>
-                <span class="method-start">70 ms</span>
+                <span class="method-start">69 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
