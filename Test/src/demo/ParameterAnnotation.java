@@ -1,6 +1,7 @@
 package demo;
 
 //test ng parameters
+//run xml file to pass the parameters
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
